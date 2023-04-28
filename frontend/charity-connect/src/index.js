@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // TODO import components and loader functions
 
 import Wrapper from "./components/Wrapper";
+import Projects, { fetchProjects } from "./components/Projects";
 
 import reportWebVitals from './reportWebVitals';
 
@@ -13,7 +14,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Wrapper />,
-    children: []
+    children: [
+      {
+        path: "/projects",
+        loader: fetchProjects,
+        element: <Projects />
+      }
+    ]
   }
 ]);
 
