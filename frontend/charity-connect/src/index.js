@@ -11,6 +11,7 @@ import SingleProject, { fetchSingleProject } from './components/SingleProject';
 import ProjectSearch, { fetchProjectSearch } from './components/ProjectSearch';
 import Donations, { fetchDonations } from './components/Donations'
 import SingleDonation, { fetchDonation } from './components/SingleDonation';
+import NewDonation from './components/NewDonation'
 
 import reportWebVitals from './reportWebVitals';
 
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         loader: fetchDonation,
         element: <SingleDonation />,
       },
+      {
+        path: "/donations/new",
+        element: <NewDonation />
+      }
     ]
   }
 ]);

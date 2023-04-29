@@ -18,8 +18,8 @@ export default function SingleDonation() {
 }
 
 async function fetchDonation({ params }) {
-    const donationResponse = await fetch(`http://localhost:3000/donations${params.donation_id}`)
-    const donationJson = await donationResponse.json()
+    const donationResponse = await fetch(`http://localhost:3000/donations${params.donation_id}`);
+    const donationJson = await donationResponse.json();
     return donationJson;
 }
 
