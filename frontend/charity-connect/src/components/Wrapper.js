@@ -12,6 +12,9 @@ export default function Wrapper() {
               <Link to="/projects/search" className="header-link" id="navLink">
                 Search
               </Link>
+              <Link to="/donations" className="header-link" id="navLink">
+                Donations
+              </Link>
             </div>
           </div>
         </header>

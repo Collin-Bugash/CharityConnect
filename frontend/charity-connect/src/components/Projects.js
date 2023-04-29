@@ -10,7 +10,7 @@ export default function Projects() {
 
       return (
         <>
-          <h1 id="projectsH1">List of all projects</h1>
+          <h1 id="projectsH1">Featured Projects</h1>
           {projects.map((project) => (
             <div key={project.id} id="project">
               <Link to={`/projects/${project.id}`} id="project">
@@ -25,7 +25,7 @@ export default function Projects() {
 
 async function fetchProjects() {
     const API_URL = 'https://api.globalgiving.org/api/public/projectservice/featured/projects/summary';
-    const API_KEY = '';
+    const API_KEY = 'd3394120-adc6-49d3-951d-1fe54da47245';
     const response = await fetch(`${API_URL}?api_key=${API_KEY}`, {
         method: "GET",
         mode: "cors",
