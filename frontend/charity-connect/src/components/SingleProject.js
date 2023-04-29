@@ -12,11 +12,14 @@ export default function SingleProject() {
       <h1 id="projectsH1">{project.title}</h1>
       <div key={project.id} id="project">
         <h4>{project.country}</h4>
-        <img src={project.imageLink} alt="Provided by charity"/>
+        <img src={project.image.imagelink[3].url} alt="Provided by charity"/>
         <h3>Summary</h3>
         <p>{project.summary}</p>
-        <h3>How Funds are Used</h3>
-        <div dangerouslySetInnerHTML={{__html: project.howDonationsAreUsed}}></div>
+        <h3>Charity Activities</h3>
+        <p>{project.activities}</p>
+        <h3>Funding Progress</h3>
+        <meter id="fundingbar" value={project.funding} max={project.goal}> ${project.funding} / ${project.goal} </meter>
+        <p>The funding goal for this project is ${project.goal}. So far ${project.funding} has been raised. {(project.funding < project.goal) ? "Donate to help them reach their goal!" : "This goal has already been met, but you can still donate!"}</p>
       </div>
     </>
   );
