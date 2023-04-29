@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Wrapper from "./components/Wrapper";
 import Projects, { fetchProjects } from "./components/Projects";
+import SingleProject, { fetchSingleProject } from './components/SingleProject';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
         path: "/projects",
         loader: fetchProjects,
         element: <Projects />
+      },
+      {
+        path: "/projects/:project_id",
+        loader: fetchSingleProject,
+        element: <SingleProject />
       }
     ]
   }

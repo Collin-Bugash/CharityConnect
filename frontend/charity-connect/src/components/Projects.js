@@ -24,8 +24,8 @@ export default function Projects() {
 }
 
 async function fetchProjects() {
-    const API_URL = 'https://api.globalgiving.org/api/public/projectservice/featured/projects';
-    const API_KEY = 'OMITTED';
+    const API_URL = 'https://api.globalgiving.org/api/public/projectservice/featured/projects/summary';
+    const API_KEY = '';
     const response = await fetch(`${API_URL}?api_key=${API_KEY}`, {
         method: "GET",
         mode: "cors",
