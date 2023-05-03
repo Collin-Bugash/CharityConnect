@@ -7,7 +7,7 @@ export default function Wrapper() {
           <div id="nav">
             <div className="header-container">
               <Link to="/projects" className="header-link" id="navLink">
-                Projects
+                Featured Projects
               </Link>
               <Link to="/projects/search" className="header-link" id="navLink">
                 Search

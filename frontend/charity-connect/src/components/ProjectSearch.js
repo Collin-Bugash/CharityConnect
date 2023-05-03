@@ -10,10 +10,19 @@ export default function ProjectSearch() {
 
   const [searchResults, setSearchResults] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const themes = useLoaderData();
 
   if (!themes) {
     return <div>Loading...</div>;
+  }
+
+  let loadingText = '';
+  if (loading) {
+    loadingText = 'Loading...';
+  } else {
+    loadingText = 'No results found.';
   }
 
   return (
@@ -21,13 +30,16 @@ export default function ProjectSearch() {
       <h1>Search Projects</h1>
       <form onSubmit={async (event) => {
         event.preventDefault();
+        setSearchResults([]);
+        setLoading(true);
         setSearchResults(await runQuery(searchOptions));
+        setLoading(false);
       }}>
         <input type="search" id="projectsearchquery" name="projectsearchquery" value={searchOptions.query} onChange={(e) => {
           setSearchOptions({ ...searchOptions, query: e.target.value });
         }}></input>
         <br/>
-        <label htmlFor="projectsearchcountry">Country</label>
+        <label htmlFor="projectsearchcountry">Country&nbsp;</label>
         <select name="projectsearchcountry" id="projectsearchcountry" value={searchOptions.country} onChange={(e) => {
           setSearchOptions({ ...searchOptions, country: e.target.value });
         }}>
@@ -286,7 +298,7 @@ export default function ProjectSearch() {
           <option value="ZW">Zimbabwe</option>
         </select>
         <br/>
-        <label htmlFor="projectsearchtheme">Theme</label>
+        <label htmlFor="projectsearchtheme">Theme&nbsp;</label>
         <select name="projectsearchtheme" id="projectsearchtheme" value={searchOptions.theme} onChange={(e) => {
           setSearchOptions({ ...searchOptions, theme: e.target.value });
         }}>
@@ -298,9 +310,10 @@ export default function ProjectSearch() {
         <input type="submit" value="Search"></input>
       </form>
       <div id="projectsearchresults">
+        <h2>{(searchResults.length <= 0) ? loadingText : ""}</h2>
         {searchResults.map((project) => (
           <div key={project.id} id="project">
-            <Link to={`/projects/${project.id}`} id="project">
+            <Link to={`/projects/${project.id}`} target="_blank" id="project">
               <h2>{project.title}</h2>
             </Link>
             <p><em>{project.summary}</em></p>
@@ -335,8 +348,11 @@ async function runQuery(searchOptions) {
       }
   });
   let jsonBlob = await response.json();
-  console.log(jsonBlob.search.response.projects.project);
-  return jsonBlob.search.response.projects.project;
+  console.log(jsonBlob.search.response);
+  if (jsonBlob.search.response.hasOwnProperty('projects')) {
+    return jsonBlob.search.response.projects.project;
+  }
+  return [];
 }
 
 async function fetchProjectSearch() {
