@@ -9,8 +9,8 @@ export default function SingleProject() {
 
   return (
     <>
-      <h1 id="projectsH1">{project.title}</h1>
-      <div key={project.id} id="project">
+      <div key={project.id} id="singleproject">
+        <h1 id="projectsH1">{project.title}</h1>
         <h4>{project.country}</h4>
         <h4><a href={project.organization.url}>Organization Website</a></h4>
         <img src={project.image.imagelink[3].url} alt="Provided by charity"/>
