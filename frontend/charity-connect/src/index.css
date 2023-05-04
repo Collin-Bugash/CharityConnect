@@ -12,6 +12,27 @@ code {
     monospace;
 }
 
+#nav {
+  margin: 25px;
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color:rgb(255, 225, 255);
+}
+
+.header-container {
+  margin: 10px;
+}
+
+#navLink {
+  margin: 5px;
+  padding: 3px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  background-color:rgb(255, 210, 255);
+  font-weight: bold;
+  text-decoration: none;
+}
+
 #fundingbar {
   width: 500px;
   height: 50px;
