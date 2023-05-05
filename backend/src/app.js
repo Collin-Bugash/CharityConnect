@@ -1,9 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
-//TODO: FIX THIS IMPORT
-import StoresRouter from './routes/stores.js';
+import ProjectsRouter from './routes/projects.js';
 
 const app = express();
 
