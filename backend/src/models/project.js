@@ -20,7 +20,11 @@ const projectSchema = mongoose.Schema({
     contactUrl: {
         type: String,
         required: true
-    }
+    },
+    summary: {
+        type: String,
+        required: true
+    },
 });
 
 export default mongoose.model('Project', projectSchema);
