@@ -16,7 +16,7 @@ export default function SingleDonation() {
 
 async function fetchDonation({ params }) {
   const donationResponse = await fetch(
-    `http://localhost:3001/donations${params.donation_id}`
+    `http://localhost:3001/donations/${params.donation_id}`
   );
   const donationJson = await donationResponse.json();
   return donationJson;
