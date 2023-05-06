@@ -84,7 +84,7 @@ code {
 #search-form-container {
   margin: 50px;
   padding: 20px;
-  border: 2px solid rgb(166, 234, 255);
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   background-color: rgb(181, 211, 247);
 }
