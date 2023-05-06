@@ -13,11 +13,7 @@ export default function Projects() {
         <h1 id="projectsH1">List of featured projects</h1>
         {projects.map((project) => (
           <div key={project.id} id="project">
-            <Link
-              to={`/projects/${project.id}`}
-              target="_blank"
-              id="project-link"
-            >
+            <Link to={`/projects/${project.id}`} id="project-link">
               <h2>{project.title}</h2>
             </Link>
             <p>

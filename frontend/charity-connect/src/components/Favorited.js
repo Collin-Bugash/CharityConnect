@@ -14,11 +14,7 @@ export default function Donations() {
         <h1 id="projectsH1">List of favorited projects</h1>
         {projects.map((project) => (
           <div key={project._id} id="project">
-            <Link
-              to={`/projects/${project.id}`}
-              target="_blank"
-              id="project-link"
-            >
+            <Link to={`/projects/${project.id}`} id="project-link">
               <h2>{project.need}</h2>
             </Link>
             <p>
