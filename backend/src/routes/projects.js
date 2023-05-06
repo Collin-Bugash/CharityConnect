@@ -32,7 +32,15 @@ ProjectsRouter.get("/:project_id", async (req, res) => {
 
 // POST /donations
 ProjectsRouter.post("/favorited", async (req, res) => {
-  // create a new donation
+  // check if the id already exists in the database
+  const existingProject = await Project.findOne({ id: req.body.id });
+  if (existingProject) {
+    return res
+      .status(400)
+      .json({ message: "Project with this id already exists" });
+  }
+
+  // create a new project
   const project = new Project({
     need: req.body.need,
     summary: req.body.summary,
@@ -40,10 +48,10 @@ ProjectsRouter.post("/favorited", async (req, res) => {
   });
 
   try {
-    // save the new donation to the model
+    // save the new project to the model
     const newProject = await project.save();
     res.status(201).json(newProject);
-  } catch {
+  } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
