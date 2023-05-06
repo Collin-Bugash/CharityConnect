@@ -8,20 +8,24 @@ export default function Donations() {
   }
 
   return (
-    <>
+    <div className="donations-container">
       <Link to="/donations/new">
         <h2>Add Donation</h2>
       </Link>
 
       <h2>Donations</h2>
-      {donations.map((donation) => (
-        <div key={donation._id} id="donation">
-          <Link to={`/donations/${donation._id}`}>
-            <h2>Donation to {donation.name}</h2>
-          </Link>
-        </div>
-      ))}
-    </>
+      {donations.length === 0 ? (
+        <div>No donations found.</div>
+      ) : (
+        donations.map((donation) => (
+          <div key={donation._id} className="donation">
+            <Link to={`/donations/${donation._id}`} className="donation-link">
+              <h2>Donation to {donation.name}</h2>
+            </Link>
+          </div>
+        ))
+      )}
+    </div>
   );
 }
 

@@ -24,6 +24,10 @@ export default function NewDonation() {
         "Content-Type": "application/json",
       },
     });
+
+    // reset form fields
+    setProjectName("");
+    setAmount("");
   }
 
   return (

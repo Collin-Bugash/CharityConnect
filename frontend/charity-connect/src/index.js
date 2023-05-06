@@ -12,6 +12,7 @@ import ProjectSearch, { fetchProjectSearch } from './components/ProjectSearch';
 import Donations, { fetchDonations } from './components/Donations'
 import SingleDonation, { fetchDonation } from './components/SingleDonation';
 import NewDonation from './components/NewDonation'
+import Favorited, { fetchFavorited } from './components/Favorited';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -48,7 +49,12 @@ const router = createBrowserRouter([
       {
         path: "/donations/new",
         element: <NewDonation />
-      }
+      },
+      {
+        path: "/projects/favorited",
+        loader: fetchFavorited,
+        element: <Favorited />,
+      },
     ]
   }
 ]);
