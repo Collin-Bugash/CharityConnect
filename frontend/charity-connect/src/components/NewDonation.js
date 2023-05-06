@@ -12,11 +12,11 @@ export default function NewDonation() {
       })
     );
     const newDonation = {
-      project: projectName,
+      name: projectName,
       amount: amount,
     };
 
-    await fetch(`http://localhost:3000/donations`, {
+    await fetch(`http://localhost:3001/donations`, {
       method: "POST",
       body: JSON.stringify(newDonation),
       mode: "cors",

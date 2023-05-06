@@ -14,10 +14,10 @@ export default function Donations() {
       </Link>
 
       <h2>Donations</h2>
-      {donations.donations.map((donation) => (
+      {donations.map((donation) => (
         <div key={donation._id} id="donation">
           <Link to={`/donations/${donation._id}`}>
-            <h2>Donation to {donation.project}</h2>
+            <h2>Donation to {donation.name}</h2>
           </Link>
         </div>
       ))}
@@ -26,7 +26,7 @@ export default function Donations() {
 }
 
 async function fetchDonations() {
-  const donationsResponse = await fetch(`http://localhost:3000/donations`);
+  const donationsResponse = await fetch(`http://localhost:3001/donations`);
   const donationsJson = await donationsResponse.json();
   return donationsJson;
 }
