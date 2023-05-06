@@ -10,15 +10,18 @@ export default function Projects() {
 
       return (
         <>
-          <h1 id="projectsH1">Featured Projects</h1>
-          {projects.map((project) => (
-            <div key={project.id} id="project">
-              <Link to={`/projects/${project.id}`} id="project">
-                <h2>{project.title}</h2>
-              </Link>
-              <p><em>{project.summary}</em></p>
-            </div>
-          ))}
+          <div id="projects-container">
+            <h1 id="projectsH1">List of featured projects</h1>
+            {projects.map((project) => (
+              <div key={project.id} id="project">
+                <Link to={`/projects/${project.id}`} target="_blank" id="project-link">
+                  <h2>{project.title}</h2>
+                </Link>
+                <p><em>{project.summary}</em></p>
+              </div>
+            ))}
+          </div>
+
         </>
       );
 }
