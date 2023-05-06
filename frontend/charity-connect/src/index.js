@@ -9,6 +9,9 @@ import Wrapper from "./components/Wrapper";
 import Projects, { fetchProjects } from "./components/Projects";
 import SingleProject, { fetchSingleProject } from './components/SingleProject';
 import ProjectSearch, { fetchProjectSearch } from './components/ProjectSearch';
+import Donations, { fetchDonations } from './components/Donations'
+import SingleDonation, { fetchDonation } from './components/SingleDonation';
+import NewDonation from './components/NewDonation'
 
 import reportWebVitals from './reportWebVitals';
 
@@ -31,6 +34,20 @@ const router = createBrowserRouter([
         path: "/projects/search",
         loader: fetchProjectSearch,
         element: <ProjectSearch />
+      },
+      {
+        path: "/donations",
+        loader: fetchDonations,
+        element: <Donations />
+      },
+      {
+        path: "/donations/:donation_id",
+        loader: fetchDonation,
+        element: <SingleDonation />,
+      },
+      {
+        path: "/donations/new",
+        element: <NewDonation />
       }
     ]
   }

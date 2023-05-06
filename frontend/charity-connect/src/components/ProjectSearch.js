@@ -331,7 +331,7 @@ export default function ProjectSearch() {
 
 async function runQuery(searchOptions) {
   const API_URL = 'https://api.globalgiving.org/api/public/services/search/projects';
-  const API_KEY = '';
+  const API_KEY = 'd3394120-adc6-49d3-951d-1fe54da47245';
 
   const queryFormatted = (searchOptions.query) ? ('&q=' + searchOptions.query) : '&q=*';
   let filtersFormatted = '';
@@ -362,7 +362,7 @@ async function runQuery(searchOptions) {
 
 async function fetchProjectSearch() {
   const API_URL = 'https://api.globalgiving.org/api/public/projectservice/themes';
-  const API_KEY = '';
+  const API_KEY = 'd3394120-adc6-49d3-951d-1fe54da47245';
   const response = await fetch(`${API_URL}?api_key=${API_KEY}`, {
       method: "GET",
       mode: "cors",

@@ -21,13 +21,14 @@ export default function Projects() {
               </div>
             ))}
           </div>
+
         </>
       );
 }
 
 async function fetchProjects() {
     const API_URL = 'https://api.globalgiving.org/api/public/projectservice/featured/projects/summary';
-    const API_KEY = '';
+    const API_KEY = 'd3394120-adc6-49d3-951d-1fe54da47245';
     const response = await fetch(`${API_URL}?api_key=${API_KEY}`, {
         method: "GET",
         mode: "cors",
